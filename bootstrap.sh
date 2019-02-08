@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 DOCKER_COMPOSE_VERSION="1.23.1"
 TERRAFORM_VERSION="0.11.11"
+K8S_VERSION="v1.13.3"
 
 # Install Docker
 apt-get update
@@ -46,8 +47,13 @@ wget -q "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -O "awscli-bundle.z
     rm awscli-bundle.zip && \
     rm -rf awscli-bundle
 
+# Install kubectl
+curl -sL https://storage.googleapis.com/kubernetes-release/release/${K8S_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl
+chmod +x /usr/local/bin/kubectl
+
 # Check versions
 docker --version
 docker-compose --version
 terraform -v
 aws --version
+kubectl version --client=true
