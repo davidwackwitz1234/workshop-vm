@@ -10,6 +10,7 @@ This Vagrantfile will provision a ubuntu server with preinstalled packages neede
 1. Change into the `workshop-vm` folder
 1. Run `vagrant up` and wait for the first setup to finish
 1. Run `vagrant ssh` to log into the machine
+1. If the provision script changed use `vagrant provision` to apply it again
 1. Have fun at the workshop!
 
 ## Synced folders
